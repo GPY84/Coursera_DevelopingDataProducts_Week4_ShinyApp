@@ -20,7 +20,8 @@ The plot will filter to all diamonds available in this price range
 Code for UI
 ========================================================
 
-```{r,eval=FALSE}
+
+```r
 # Define UI for application to selcect price and print plot
 
 ui <- fluidPage(
@@ -41,13 +42,13 @@ ui <- fluidPage(
     )
   )
 )
-
 ```
 
 Code for Server
 ========================================================
 
-```{r, eval=FALSE}
+
+```r
 # Define server logic required to draw create the Diamonds PlotLy
 
 server <- function(input, output) {

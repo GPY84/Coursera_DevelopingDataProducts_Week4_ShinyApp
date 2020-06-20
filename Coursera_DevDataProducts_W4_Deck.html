@@ -802,7 +802,7 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Shiny App created</h3>
 <div class="slideContent" >
-<p>In this app you can choose the maximum price you to affort for a diamond.
+<p>In this app you can choose the max. price you can affort for a diamond.
 The plot will filter to all diamonds available in this price range</p>
 
 </div>
@@ -812,6 +812,7 @@ The plot will filter to all diamonds available in this price range</p>
 <h3>Code for UI</h3>
 <div class="slideContent" >
 <pre><code class="r"># Define UI for application to selcect price and print plot
+
 ui &lt;- fluidPage(
   # Application title
   titlePanel(&quot;Which diamonds can you affort&quot;),
@@ -838,10 +839,14 @@ ui &lt;- fluidPage(
 <section data-transition="linear" data-transition-speed="default">
 <h3>Code for Server</h3>
 <div class="slideContent" >
-<pre><code class="r">server &lt;- function(input, output) {
+<pre><code class="r"># Define server logic required to draw create the Diamonds PlotLy
+
+server &lt;- function(input, output) {
+# Select the Input from the slider and filter the data set  
   output$DMplot &lt;- renderPlotly({
     daffortable &lt;- diamonds %&gt;% 
       filter(price &lt; input$Slider)
+# Create plot based on the filter above
     ggplotly(qplot(carat, price, data = daffortable, color = color,
                    geom=c(&quot;point&quot;)))
   })
